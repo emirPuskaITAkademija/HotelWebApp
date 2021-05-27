@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/hotel.css"/> 
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <header>
+                <h1>Emir's privilege list</h1>
+            </header>
+            <main>
+                <h1>Edit privileges</h1>
+                <h:form>
+                    <h:dataTable value="#{privilegeEditor.privileges}"
+                                 var="privilege">
+                        <h:column>
+                            <h:commandLink
+                                action="#{privilegeEditor.deleteCategory(privilege)}">
+                                <h:graphicImage alt="delete"
+                                                title="delete"/>
+                            </h:commandLink>
+                        </h:column>
+                        <h:column>
+                            <h:inputText value="#{privilege.name}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandLink styleClass="button"
+                                   value="Add privilege"
+                                   action="#{privilegeEditor.addPrivilege}"/>
+                    <h:commandButton styleClass="button"
+                                     value="Save"
+                                     action="#{privilegeEditor.save}"/>
+                </h:form>            </main>
+            <nav>
+                This is the navigation
+            </nav>
+            <footer>
+                <h:outputLink value="www.google.com">
+                    Emir's Site
+                </h:outputLink>
+                |
+                <h:link value="About" outcome="index.xhtml"/>
+            </footer>
+        </div> 
+    </h:body>
+</html>
+
